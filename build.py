@@ -8,8 +8,7 @@ command = [
     '--index-url',
     'https://us-python.pkg.dev/cloud-aoss/cloud-aoss-python/simple',
     '-v',
-    '--no-deps',
-    '--break-system-packages'
+    '--no-deps'
 ]
 
 # Run the command
