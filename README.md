@@ -58,8 +58,8 @@ After cloning the project, User need to follow certain steps to get started with
 
 ```cmd
 (env) $ python manage.py shell
->>> from django.core.management.utils import get_random_secret_key
->>> print(get_random_secret_key())
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
 ```
 paste the key in the settings.py file.
 
