@@ -8,7 +8,7 @@ Users can refer to [Assured Open Source Software](https://cloud.google.com/assur
 Run the following command to clone the project in your local setup: 
 
 ```cmd
-git clone {Project link}
+git clone https://github.com/google/aoss-django-sample-starter-project.git
 ```
 
 ## Prerequisite : 
@@ -21,7 +21,9 @@ gcloud components update
 3. To enable access to Assured OSS, submit the [customer enablement form](https://developers.google.com/assured-oss#get-started).
 4. [Validate connectivity](https://cloud.google.com/assured-open-source-software/docs/validate-connection) to Assured OSS for the requested service accounts.
 5. [Enable the Artifact Registry API](https://cloud.google.com/artifact-registry/docs/enable-service) for the parent Google Cloud project of the service accounts used to access Assured OSS.
- 
+
+Install the latest version of python3 before running the project.
+
 ## Steps to run the project :
 After cloning the project, User need to follow certain steps to get started with the project:
 
@@ -52,7 +54,16 @@ After cloning the project, User need to follow certain steps to get started with
     4. For information about setting up [Application Default Credentials](https://cloud.google.com/docs/authentication#adc), see [Set up authentication](https://cloud.google.com/assured-open-source-software/docs/validate-connection#set_up_authentication).
     This step ensures that the Assured OSS credential helper obtains your key when connecting with the repositories.
 
-2. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
+2. Every Django project has a unique secret key. Create a new secret key by following the mentioned steps :
+
+```cmd
+(env) $ python manage.py shell
+>>> from django.core.management.utils import get_random_secret_key
+>>> print(get_random_secret_key())
+```
+paste the key in the settings.py file.
+
+3. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
 
 ```cmd
 Django==4.2
