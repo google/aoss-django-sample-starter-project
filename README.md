@@ -57,7 +57,7 @@ After cloning the project, User need to follow certain steps to get started with
 2. Every Django project has a unique secret key. Create a new secret key by following the mentioned steps :
 
 ```cmd
-(env) $ python manage.py shell
+python3
 from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
