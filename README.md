@@ -21,40 +21,36 @@ gcloud components update
 3. To enable access to Assured OSS, submit the [customer enablement form](https://developers.google.com/assured-oss#get-started).
 4. [Validate connectivity](https://cloud.google.com/assured-open-source-software/docs/validate-connection) to Assured OSS for the requested service accounts.
 5. [Enable the Artifact Registry API](https://cloud.google.com/artifact-registry/docs/enable-service) for the parent Google Cloud project of the service accounts used to access Assured OSS.
+6. You should have python3/python 3.8+ downloaded and configured on your system. You can verify their installations by running python3 --version commands in the command prompt or terminal.
 
-Install the latest version of python3 before running the project.
+## Steps to start working on project
+1. User should run setup.sh script before doing anything,in order to download backends as well as run and check the installation and authentication on their system. The script will guide them what went wrong and it is mandatory to run this before starting build tool. Run the following command after inserting path_to_service_account_key to execute the setup script:
 
-## Steps to run the project :
-After cloning the project, User need to follow certain steps to get started with the project:
+```cmd
+chmod +x setup.sh 
+./setup.sh path_to_service_account_key
+```
+Once the setup is completed it will say "Authentication successful, Proceed with build.py"
+Refer to [set up authentication](https://cloud.google.com/assured-open-source-software/docs/validate-connection#set_up_authentication) for further information.
 
-1. Setting up authentication via Python Keyring : 
+2. After the setup is complete the user should run 
 
-    1. Install the keyring library using the following command:
+```cmd
+python3 build.py
+```
+to download required packages
+ 
+3. In case user want to look at the report of what packages are downloaded from Assured OSS and Open Source as well, they can run generate_report.sh script after inserting path_to_service_account_key to execute the setup script
 
-    ```cmd
-    pip install keyring
-    ```
+```cmd
+chmod +x generate_report.sh
+./generate_report.sh path_to_service_account_key
+```
+The following report will be printed as report.txt
 
-    2. Install the Artifact Registry backend using the following command:
+## Steps to make changes and extend the project 
 
-    ```cmd
-    pip install keyrings.google-artifactregistry-auth
-    ```
-
-    3. List backends to confirm the installation using the following command:
-
-    ```cmd
-    keyring --list-backends
-    ```
-
-    The list should include:
-    1. ChainerBackend(priority:10)
-    2. GooglePythonAuth(priority:9)
-
-    4. For information about setting up [Application Default Credentials](https://cloud.google.com/docs/authentication#adc), see [Set up authentication](https://cloud.google.com/assured-open-source-software/docs/validate-connection#set_up_authentication).
-    This step ensures that the Assured OSS credential helper obtains your key when connecting with the repositories.
-
-2. Every Django project has a unique secret key. Create a new secret key by following the mentioned steps :
+1. Every Django project has a unique secret key. Create a new secret key by following the mentioned steps :
 
 ```cmd
 python3
@@ -63,7 +59,7 @@ print(get_random_secret_key())
 ```
 paste the key in the settings.py file.
 
-3. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
+2. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
 
 ```cmd
 Django==4.2
@@ -71,11 +67,11 @@ loguru==0.7.0
 name_of_package == version_of_package
 ```
 
-4. Run the following command : 
+3. Run the following command : 
 
 ```cmd
 python3 build.py
-python3 manage.py runserver
+./gradlew run
 ```
 
 All the required packages will get downloaded, and users can import it to start working with it. 
