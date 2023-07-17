@@ -52,7 +52,8 @@ run_gcloud_auth_login() {
 }
 
 
-# Check the exit status of the gcloud auth login commandcheck_gcloud_auth_status() {
+# Check the exit status of the gcloud auth login command
+check_gcloud_auth_status() {
   if [ $? -eq 0 ]; then
     echo "Authentication successful"
     export GOOGLE_APPLICATION_CREDENTIALS="$credentials_file"
