@@ -53,16 +53,13 @@ fetch_curl_output() {
 
 # Process pip dependencies and check which packages are present in tempfile_output_curl
 process_pip_dependencies() {
-    local file
-    local extracted_content
-
+    
     while IFS= read -r file; do
         if grep -q "$file" tempfile_output_curl; then
-            ((aoss_count++))
-            extracted_content=$(basename "$file" | awk -F'/' '{print $(NF-1)}')
-            aoss_packages+="$extracted_content"$'\n'
+        ((aoss_count++))
+        aoss_packages+="$(basename "$file" | awk -F'/' '{print $(NF-1)}')"$'\n'
         else
-            ((public_repo_count++))
+        ((public_repo_count++))
         fi
     done < tempfile_output_pip
 }
@@ -97,7 +94,6 @@ main() {
     local aoss_count=0
     local public_repo_count=0
     local aoss_packages=""
-    local public_repo_packages=""
 
     process_pip_dependencies
     save_report
