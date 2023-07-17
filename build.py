@@ -1,6 +1,5 @@
 import subprocess
 
-
 aoss_command = [
     'pip',
     'install',
@@ -11,6 +10,5 @@ aoss_command = [
     '--no-deps',
     '--break-system-packages'
 ]
-
 
 subprocess.call(aoss_command)

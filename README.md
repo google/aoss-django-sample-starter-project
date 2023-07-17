@@ -21,7 +21,7 @@ gcloud components update
 3. To enable access to Assured OSS, submit the [customer enablement form](https://developers.google.com/assured-oss#get-started).
 4. [Validate connectivity](https://cloud.google.com/assured-open-source-software/docs/validate-connection) to Assured OSS for the requested service accounts.
 5. [Enable the Artifact Registry API](https://cloud.google.com/artifact-registry/docs/enable-service) for the parent Google Cloud project of the service accounts used to access Assured OSS.
-6. You should have python3/python 3.8+ downloaded and configured on your system. You can verify their installations by running python3 --version commands in the command prompt or terminal.
+6. You should have python3/python 3.8+ downloaded and configured on your system. You can verify their installations by running python3 --version command in the command prompt or terminal.
 
 ## Steps to start working on project
 1. User should run setup.sh script before doing anything,in order to download backends as well as run and check the installation and authentication on their system. The script will guide them what went wrong and it is mandatory to run this before starting build tool. Run the following command after inserting path_to_service_account_key to execute the setup script:
@@ -71,7 +71,7 @@ name_of_package == version_of_package
 
 ```cmd
 python3 build.py
-./gradlew run
+python3 manage.py runserver
 ```
 
 All the required packages will get downloaded, and users can import it to start working with it. 
