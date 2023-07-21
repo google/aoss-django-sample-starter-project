@@ -1,7 +1,7 @@
 # AOSS-Django-Sample-Starter-Project
 
 ## Introduction
-This is a simple “Hello-World” Django application written in Python, which downloads the required and available packages from Assured OSS and the rest non-available packages from PyPi Repository (open-source). The aim of this document is to define how to start working on sample starter projects using Assured OSS packages, which can help a user to quickly start using Assured OSS with minimal friction.
+This is a simple “Hello-World” Django application written in Python, which downloads the required and available packages from Assured OSS and the rest non-available packages from PyPi Repository (open-source). The aim of this document is to define how to start working on sample starter project which can help a user to quickly start using Assured OSS with minimal friction.
 Users can refer to [Assured Open Source Software](https://cloud.google.com/assured-open-source-software) for further reading and information about Assured OSS.
 
 ## Installation : 
@@ -24,7 +24,9 @@ gcloud components update
 6. You should have python3/python 3.8+ downloaded and configured on your system. You can verify their installations by running python3 --version command in the command prompt or terminal.
 
 ## Steps to start working on project
-1. User should run setup.sh script before doing anything,in order to download backends as well as run and check the installation and authentication on their system. The script will guide them what went wrong and it is mandatory to run this before starting build tool. Run the following command after inserting path_to_service_account_key to execute the setup script:
+1. User should run setup.sh script before doing anything,in order to download backends as well as run and check the installation and authentication on their system. The script will guide them what went wrong and it is mandatory to run this before starting build tool. 
+
+Run the following command after inserting path_to_service_account_key to execute the setup script:
 
 ```cmd
 chmod +x setup.sh 
@@ -46,7 +48,7 @@ to download required packages
 chmod +x generate_report.sh
 ./generate_report.sh path_to_service_account_key
 ```
-The following report will be printed as report.txt
+The following report will be stored as report.txt in the root directory.
 
 ## Steps to make changes and extend the project 
 
@@ -57,9 +59,9 @@ python3
 from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
-paste the key in the settings.py file in place of ('DJANGO_SECRET_KEY').
+paste the key in the settings.py file in place of config('DJANGO_SECRET_KEY').
 
-2. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
+2. Update requirements.txt file by adding name_of_package == version_of_package accordingly
 
 ```cmd
 Django==4.2
