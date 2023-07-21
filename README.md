@@ -57,7 +57,7 @@ python3
 from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
-paste the key in the settings.py file.
+paste the key in the settings.py file in place of ('DJANGO_SECRET_KEY').
 
 2. Update requirements-google.txt file by adding name_of_package == version_of_package accordingly
 
