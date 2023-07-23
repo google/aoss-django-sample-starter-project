@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 #!/bin/bash
 
 # Set the credentials file and export environment variable
@@ -56,10 +55,10 @@ process_pip_dependencies() {
     
     while IFS= read -r file; do
         if grep -q "$file" tempfile_output_curl; then
-        ((aoss_count++))
-        aoss_packages+="$(echo "$file" | awk -F'/' '{print substr($NF, 1, length($NF)-2)}')"$'\n'
+            ((aoss_count++))
+            aoss_packages+="$(echo "$file" | awk -F'/' '{print substr($NF, 1, length($NF)-2)}')"$'\n'
         else
-        ((public_repo_count++))
+            ((public_repo_count++))
         fi
     done < tempfile_output_pip
 }
@@ -81,7 +80,6 @@ cleanup() {
     rm tempfile_output_pip tempfile_output_curl
 }
 
-# Main script execution
 main() {
     local credentials_file="$1"
 
@@ -97,9 +95,7 @@ main() {
 
     process_pip_dependencies
     save_report
-
     cat report.txt
-
     cleanup
 }
 

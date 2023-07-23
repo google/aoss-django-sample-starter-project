@@ -13,13 +13,13 @@
 # limitations under the License.
 
 #!/bin/bash
-# Install keyring packages
+
 install_keyring_packages() {
   pip install keyring --break-system-packages
   pip install keyrings.google-artifactregistry-auth --break-system-packages
 }
 
-# Check keyring backends
+# Check keyring backends and it's availability
 check_keyring_backends() {
   local expected_backends=("keyring.backends.chainer.ChainerBackend (priority: 10)" "keyrings.gauth.GooglePythonAuth (priority: 9)")
   local available_backends=$(keyring --list-backends)
@@ -44,13 +44,11 @@ check_credentials_file() {
   fi
 }
 
-# Run gcloud auth login with credentials file
 run_gcloud_auth_login() {
   local credentials_file="$1"
 
   gcloud auth login --cred-file="$credentials_file"
 }
-
 
 # Check the exit status of the gcloud auth login command
 check_gcloud_auth_status() {
@@ -92,6 +90,5 @@ main() {
 
   check_gcloud_auth_status
 }
-
 
 main "$@"
