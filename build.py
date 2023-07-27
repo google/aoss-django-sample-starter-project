@@ -7,8 +7,7 @@ aoss_command = [
     '--index-url',
     'https://us-python.pkg.dev/cloud-aoss/python/simple',
     '-v',
-    '--no-deps',
-    '--break-system-packages'
+    '--no-deps'
 ]
 
 subprocess.call(aoss_command)

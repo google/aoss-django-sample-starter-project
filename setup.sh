@@ -15,8 +15,8 @@
 #!/bin/bash
 
 install_keyring_packages() {
-  pip install keyring --break-system-packages
-  pip install keyrings.google-artifactregistry-auth --break-system-packages
+  pip install keyring 
+  pip install keyrings.google-artifactregistry-auth 
 }
 
 # Check keyring backends and it's availability
